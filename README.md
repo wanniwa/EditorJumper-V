@@ -1,4 +1,4 @@
-# EditorJumper
+# EditorJumper-V
 
 <div align="center">
   <img src="image/pluginIcon.png" alt="EditorJumper Icon" width="128" height="128"/>
@@ -12,16 +12,20 @@
 
 ## 🔍 Introduction
 
-EditorJumper is a VS Code extension that allows you to seamlessly jump between modern code editors (VS Code, Cursor, Trae, Windsurf, Xcode) and JetBrains IDEs (such as IntelliJ IDEA, WebStorm, PyCharm, etc.). It maintains your cursor position and editing context, greatly improving development efficiency in multi-editor environments.
+EditorJumper-V is a VS Code-compatible extension that allows you to seamlessly jump between modern code editors (VS Code, Cursor, Windsurf, Void, Kiro, Qoder, etc.) and JetBrains IDEs (such as IntelliJ IDEA, WebStorm, PyCharm, etc.). It maintains your cursor position and editing context, greatly improving development efficiency in multi-editor environments.
 
 <div align="center">
   <img src="image/JumpAndBack.gif" alt="Jump and Back Demo" width="800"/>
 </div>
 
+<div align="center">
+  <img src="image/ConfigurationPanel.png" alt="Configuration Panel" width="600"/>
+</div>
+
 ## 🌟 Features
 
 - 🚀 **Seamless Editor Switching**
-  - Quickly jump from VS Code, Cursor, Trae, or Windsurf to JetBrains IDEs
+  - Quickly jump from VS Code, Cursor, Windsurf, Void, Kiro, Qoder to JetBrains IDEs
   - Automatically positions to the same cursor location (line and column)
   - Perfectly maintains editing context without interrupting workflow
 
@@ -32,7 +36,8 @@ EditorJumper is a VS Code extension that allows you to seamlessly jump between m
 - ⚡ **Multiple Trigger Methods**
   - Right-click in editor - select "Open in JetBrains IDE"
   - Right-click in file explorer - select "Open in JetBrains IDE"
-  - Customizable keyboard shortcuts
+  - Standard mode jump - Shift+Alt+O (default keyboard shortcut)
+  - Fast mode jump (Mac) - Shift+Alt+P (optimized for speed, especially on macOS)
 
 - 🎚️ **Easy Target IDE Selection**
   - Status bar widget - click the IDE icon to select which JetBrains IDE to jump to
@@ -43,7 +48,7 @@ EditorJumper is a VS Code extension that allows you to seamlessly jump between m
 
 ## 💻 System Requirements
 
-- VS Code 1.60.0 or higher, or other supported editors (Cursor, Trae, Windsurf)
+- VS Code 1.81.0 or higher, or other supported editors (Cursor, Windsurf, Void, Kiro, Qoder)
 - Installed JetBrains IDE (IntelliJ IDEA, WebStorm, PyCharm, etc.)
 
 ## 📥 Installation
@@ -55,59 +60,100 @@ EditorJumper is a VS Code extension that allows you to seamlessly jump between m
 
 ## ⚙️ Configuration
 
-Click the settings icon (⚙️) in the status bar to open the configuration panel:
+1. Click the IDE icon in the status bar
+2. Select "$(gear) Configure EditorJumper" to open configuration panel
+3. Configure the following options:
+   - Select default JetBrains IDE
+   - Add or edit IDE configurations
+   - Set IDE command paths (if needed)
 
-<div align="center">
-  <img src="image/ConfigurationPanel.png" alt="Configuration Panel" width="600"/>
-</div>
+### Configuration Panel
 
-### Configuration Options
-- Select default JetBrains IDE
-- Add or edit custom IDE configurations
-- Configure IDE paths
-- Hide/show specific IDEs
-- Customize keyboard shortcuts
+The configuration panel allows you to:
+- Add new IDE configurations
+- Edit existing IDE configurations
+- Hide unnecessary IDEs
+- Select default IDE
+
+For each IDE, you can configure:
+- IDE name
+- Command path (required for custom IDEs)
+- Whether to hide in selection list
+
+> **Configuration Notes:**
+> - macOS: All JetBrains IDEs work without additional configuration, using command-line tools automatically
+> - Windows: Need to configure IDE command-line tool paths
+> - Linux: Need to configure IDE command-line tool paths
+>
+> **Best Practices:**
+> - Use JetBrains Toolbox to manage IDEs, which automatically creates command-line tools
+> - Or create command-line launcher in IDE via Tools → Create Command-line Launcher
 
 ## 🚀 Usage
 
-1. **Via Right-Click Menu**
-   - Right-click in the editor or file explorer
-   - Select "Open in JetBrains IDE"
+### Via Keyboard Shortcuts
 
-2. **Via Status Bar**
-   - Click the IDE icon in the bottom status bar
-   - Select your target JetBrains IDE
-   - Use any trigger method to jump
+| Scenario | Shift+Alt+O | Shift+Alt+P (Mac Fast Mode) |
+|----------|-------------|---------------------------|
+| **On project folder** | Open project | Ultra-fast open project |
+| **On specific file** | Open project + file | Mac faster (requires project to be opened first, otherwise only opens file), Windows same as standard |
 
-3. **Via Keyboard Shortcuts**
-   - Use customized shortcuts to quickly jump between editors
+**Recommendations:**
+- **Windows Users**: Use Shift+Alt+O (meets all needs)
+- **Mac Users**: Use Shift+Alt+O, then switch to Shift+Alt+P for faster experience once familiar
+
+### Via Context Menu
+
+1. Right-click in the editor or file explorer
+2. Select "Open in JetBrains IDE"
+
+### Change Jump Target in Status Bar
+
+1. Click the IDE icon in the bottom status bar
+2. Select the target JetBrains IDE from the dropdown menu
+3. Use any trigger method above to execute the jump
 
 ## 🔄 Complementary Use
 
-For a complete bidirectional workflow, use this extension with [EditorJumper](https://github.com/wanniwa/EditorJumper) JetBrains plugin to enable jumping back from JetBrains IDEs to VS Code/Cursor/Trae/Windsurf.
+> Recommended for use with [EditorJumper](https://github.com/wanniwa/EditorJumper) to quickly return from JetBrains IDE to VS Code, Cursor, Windsurf, Void, Kiro, Qoder, and other editors
+
+Using both tools creates a seamless development experience across all your favorite editors.
 
 ## 🤝 Contribution
 
-Pull Requests and Issues are welcome to help improve this plugin!
+Pull Requests and Issues are welcome to help improve this extension!
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-## Q&A
+## Frequently Asked Questions
 
 ### Q: What should I do if EditorJumper doesn't respond or throws an error when jumping to IntelliJ IDEA on Mac?
 
-A: If EditorJumper doesn't respond or throws an error when jumping to IntelliJ IDEA or other JetBrains IDEs on Mac, try the following steps:
+**Solution:**
 
-1. Open IntelliJ IDEA.
-2. Select `Tools` from the menu bar.
-3. Click `Create Command-line Launcher...`.
-4. Follow the prompts to complete the setup.
+1. Open IntelliJ IDEA
+2. Select `Tools` from the menu bar
+3. Click `Create Command-line Launcher...`
+4. Follow the prompts to complete the setup
 
 This ensures that the command-line launcher is properly configured, resolving the jump issue.
+
 <div align="center">
   <img src="image/macCreateCommand-line.png" alt="macCreateCommand-line" width="600"/>
 </div>
+
+### Q: How to add a custom IDE?
+
+1. Open EditorJumper configuration panel
+2. Click "Add New IDE" button
+3. Check "Custom IDE"
+4. Enter IDE name and command path
+5. Click Save
+
+### Q: Why doesn't fast mode (Shift+Alt+P) work on Windows?
+
+Fast mode is a feature optimized for macOS and automatically falls back to standard mode on Windows. Windows users can get the best experience using Shift+Alt+O.
 
 ---

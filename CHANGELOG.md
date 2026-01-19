@@ -22,4 +22,8 @@
 ### Changed
 - Changed `selectedIDE` configuration to be project-level (resource scope).
 
+## [1.2.0] - 2025-09-30
+### Added
+- Added fast mode command support with Shift+Alt+P keyboard shortcut on macOS.
+
 
